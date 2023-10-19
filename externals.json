@@ -1,0 +1,11 @@
+{
+  "imports": {
+    "react": "umd/react.production.min.js",
+    "react-dom": "umd/react-dom.production.min.js"
+  },
+  "scopes": {
+    "react-dom": [
+      "react"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "client-navigator-app",
+  "version": "0.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "dist": "abb-hmi-build build",
+    "lint": "eslint .",
+    "test": "vitest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@abb-hmi/apux": "^0.4.1",
+    "@abb-hmi/build": "0.2.0",
+    "@abb-hmi/service-context-menu": "0.2.0",
+    "@abb-hmi/widget-dev": "1.1.0-beta.0",
+    "@abb-hmi/widget-test-react-vitest": "0.2.0",
+    "@abb-hmi/widget-test-vitest": "0.2.0",
+    "@testing-library/react": "14.0.0",
+    "@types/node": "20.7.0",
+    "@types/react": "18.2.22",
+    "@types/react-dom": "18.2.7",
+    "@typescript-eslint/eslint-plugin": "6.7.3",
+    "@typescript-eslint/parser": "6.7.3",
+    "@vitejs/plugin-react-swc": "3.4.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "8.50.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-react": "7.33.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "jsdom": "22.1.0",
+    "modern-normalize": "2.0.0",
+    "postcss": "^8.4.31",
+    "prettier": "3.0.3",
+    "sass": "^1.68.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "5.2.2",
+    "vite": "4.4.9",
+    "vitest": "0.34.5"
+  },
+  "dependencies": {
+    "@abb-hmi/apux-react": "^0.4.1",
+    "@abb-hmi/widget-sdk-react": "1.0.1-beta.0",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "packageManager": "yarn@3.6.3"
+}
