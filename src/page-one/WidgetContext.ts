@@ -1,19 +1,19 @@
-import { createWidgetContext, IAuth, ILogger, IPublicView } from '@abb-hmi/widget-sdk-react';
+import {
+  createWidgetContext,
+  IAuth,
+  ILogger,
+  IPublicView,
+  WidgetService,
+} from '@abb-hmi/widget-sdk-react';
 
 export type ListItem = {
-  id: string;
+  version: string;
   name: string;
-  metadata: MetadataItem[];
-};
-
-export type MetadataItem = {
-  key: string;
-  value: string;
 };
 
 export type WidgetProps = {
-  services: { logger: ILogger; view: IPublicView; auth: IAuth };
-  configuration: { apiUrl: string };
+  services: { logger: ILogger; view: IPublicView; auth: IAuth; widget: WidgetService };
+  configuration: { name: string; version: string };
 };
 
 export const { WidgetContext, useConfiguration, useServices } = createWidgetContext<WidgetProps>();

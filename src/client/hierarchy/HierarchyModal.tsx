@@ -2,26 +2,22 @@ import React, { SetStateAction } from 'react';
 import { TreeView, TreeViewItem } from '@abb-hmi/apux-react';
 import { icons } from '../constants/Home.ts';
 
-type HierarchyModalProps = {
-  dataSource: any;
-  value: string;
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<SetStateAction<boolean>>;
-  setSelectedItem: React.Dispatch<SetStateAction<any>>;
-  getFilteredData: (values: any) => Promise<void>;
-  selectedItem: object;
-  registerType?: string;
-  setValue: any;
-};
-type SelectedHierarchyNode = {
+type HierarchyScopeModel = {
   uId: string | null;
   id: string;
   name: string;
   hierarchyLevel: string;
   description: string;
-  parentUId: string | null;
+  parentUId: string;
   rootNodesName?: string;
 };
+
+type HierarchyModalProps = {
+  dataSource: any;
+  setSelectedItem: React.Dispatch<SetStateAction<any>>;
+  selectedItem: HierarchyScopeModel;
+};
+
 const HierarchyModalGlobal: React.FC<HierarchyModalProps> = ({
   dataSource = [],
   selectedItem,
@@ -40,30 +36,19 @@ const HierarchyModalGlobal: React.FC<HierarchyModalProps> = ({
     if (!event.target.selected) return;
 
     setSelectedItem(event.target.selected ? data : {});
-    // hierarchyStore.setSelectedHierarchyNode(
-    //   (data as SelectedHierarchyNode) ?? {
-    //     uId: '',
-    //     id: '',
-    //     name: '',
-    //     hierarchyLevel: '',
-    //     description: '',
-    //     parentUId: null,
-    //     rootNodesName: '',
-    //   }
-    // );
   };
 
   const BuildMDMTree = (mdmTree: any) => {
-    const isHierarchyMapped = mappedHeirarchy?.includes(mdmTree.mdmTree.uId);
+    // const isHierarchyMapped = mappedHeirarchy?.includes(mdmTree.mdmTree.uId);
     return (
       <TreeViewItem
         onChange={(e) => console.log(e)}
         open={true}
         text={mdmTree.mdmTree?.name}
-        style={{
-          pointerEvents: isHierarchyMapped ? 'auto' : 'none',
-          color: isHierarchyMapped ? 'rgba(31, 31, 31, 1.0)' : 'rgba(31, 31, 31, 0.5)',
-        }}
+        // style={{
+        //   pointerEvents: isHierarchyMapped ? 'auto' : 'none',
+        //   color: isHierarchyMapped ? 'rgba(31, 31, 31, 1.0)' : 'rgba(31, 31, 31, 0.5)',
+        // }}
       >
         <span style={{ display: 'none' }}>{mdmTree.mdmTree?.uId}</span>
         {mdmTree.mdmTree?.children?.map((child: any, index: number) => {

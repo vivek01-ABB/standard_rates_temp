@@ -1,7 +1,6 @@
 import React from 'react';
-import { useStyle, getEventBroadcaster, getNavigator, INavigator } from '@abb-hmi/widget-sdk-react';
-import { useServices, useConfiguration } from './WidgetContext.ts';
-import Index from '../client/main.tsx';
+import { useStyle, INavigator } from '@abb-hmi/widget-sdk-react';
+import Index from '../client/navigation/main.tsx';
 import style from './Widget.css?inline';
 
 interface MainInterface {

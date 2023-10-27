@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "dist": "abb-hmi-build build",
+    "dist": "abb-hmi-build build && abb-hmi-app-dockerizer dockerize",
     "lint": "eslint .",
     "test": "vitest"
   },
@@ -25,8 +25,9 @@
     ]
   },
   "devDependencies": {
+    "@abb-hmi/app-dockerizer": "^0.2.0-alpha.0",
     "@abb-hmi/apux": "^0.4.1",
-    "@abb-hmi/build": "0.2.0",
+    "@abb-hmi/build": "0.1.0-alpha.2",
     "@abb-hmi/service-context-menu": "0.2.0",
     "@abb-hmi/widget-dev": "1.1.0-beta.0",
     "@abb-hmi/widget-test-react-vitest": "0.2.0",

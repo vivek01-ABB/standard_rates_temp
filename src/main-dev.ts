@@ -17,4 +17,14 @@ document.head.append(style);
 
 // Start the tinyHMI.
 // To add additional services import `devDi` from `@abb-hmi/widget-dev`.
-tinyHMI(widgets, { withWidgetSelector: true });
+tinyHMI(widgets, {
+  withWidgetSelector: true,
+  configuration: {
+    'client-page-one': {
+      selectedItem: {
+        widgetName: 'dev',
+        name: 'selectedItem',
+      },
+    },
+  },
+});
