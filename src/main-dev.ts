@@ -5,7 +5,7 @@ import { tinyHMI } from '@abb-hmi/widget-dev';
 import './main.js';
 import widgets from './widgets.json';
 import '@abb-hmi/service-context-menu/context-menu.scss';
-import { DevPanel } from '@abb-hmi/widget-dev';
+import { devPanelForTopBarFilter } from './top-bar-filter/dev/dev-panel.tsx';
 
 // Inject APUX styles with an identifier.
 const style = document.createElement('style');
@@ -23,26 +23,10 @@ tinyHMI(widgets, {
   devPanel: (tag) => {
     switch (tag) {
       case 'hmi-demo-react-top-bar-filter': {
-        // Creating a debugging interface
-        // this can be done in an html file, react, or any tool
-        const panel = document.createElement('div');
-        panel.append('Dev tools for the item list');
-        const label = document.createElement('div');
-        label.append('Selected item is: ');
-        panel.append(label);
-        const value = document.createElement('strong');
-        label.append(value);
-        // Getting the promise of the communication object
-
-        // Returning the panel information
-        return {
-          // The HTML element
-          panel,
-          // The location, it can be also "right"
-          side: 'bottom',
-          // The default size of the panel in pixels
-          size: 200,
-        };
+        return devPanelForTopBarFilter();
+      }
+      case 'client-page-one': {
+        return devPanelForTopBarFilter();
       }
 
       default:
@@ -57,6 +41,16 @@ tinyHMI(widgets, {
       },
     },
     'hmi-demo-react-top-bar-filter': {
+      topBar: {
+        widgetName: 'dev',
+        name: 'topBar',
+        transform: {
+          kind: 'filter',
+          value: ['dogs', 'rats'],
+        },
+      },
+    },
+    'hmi-demo-react-top-bar-log': {
       topBar: {
         widgetName: 'dev',
         name: 'topBar',

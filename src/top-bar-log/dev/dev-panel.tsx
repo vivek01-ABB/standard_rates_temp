@@ -1,9 +1,9 @@
-import { FC, FormEvent, useCallback, useEffect, useState } from 'react';
-import { ITopBarCom } from '../../client/interfaces/index.ts';
+import { FC, FormEvent, useCallback, useEffect } from 'react';
 import { devCommunicationExchange, DevPanel } from '@abb-hmi/widget-dev';
 import { Button, Input } from '@abb-hmi/apux-react';
-import WidgetVersion from '../../page-one/WidgetVersion.ts';
 import { createRoot } from 'react-dom/client';
+import { ITopBarCom } from '../../client/interfaces/index.ts';
+import WidgetVersion from '../../page-one/WidgetVersion.ts';
 
 // Produce communication object (it is ok to be singleton in dev)
 const searchListeners: Parameters<ITopBarCom['onSearch']>[0][] = [];
@@ -15,14 +15,12 @@ const com: ITopBarCom = {
   onErase: (listener) => eraseListeners.push(listener),
 };
 
-export const Panel: FC = (): React.JSX.Element => {
+const Panel: FC = () => {
   // Handle submit of form (text and search button)
   const formSubmit = useCallback((event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const name = formData.get('text');
-    console.log({ name }, searchListeners);
-
     searchListeners.forEach((l) => l((name as string | undefined) ?? ''));
   }, []);
 
@@ -37,38 +35,16 @@ export const Panel: FC = (): React.JSX.Element => {
 
   // Send the com object
   useEffect(() => {
-    console.log('here');
-
     devCommunicationExchange.setCommunicationObject('dev', 'topBar', com, {
       name: 'ITopBarCom',
       version: WidgetVersion,
     });
   }, []);
 
-  // Receive the relayed object
-  const [searched, setSearched] = useState('');
-  const [lastEvent, setLastEvent] = useState('');
-  useEffect(() => {
-    const promisedRelay = devCommunicationExchange.getCommunicationObject<ITopBarCom>(
-      'hmi-demo-react-top-bar-filter',
-      'topBar'
-    );
-
-    promisedRelay.then((relay) => {
-      relay.onSearch((txt) => {
-        setSearched(() => txt);
-        setLastEvent(() => 'Search');
-      });
-      relay.onAbort(() => setLastEvent(() => 'Abort'));
-      relay.onErase(() => setLastEvent(() => 'Erase'));
-    });
-  }, []);
-
   return (
     <div>
       <h5>Task list dev panel</h5>
-      <p>This helpers allows to emulate the top bar and spy on the relayed events</p>
-      <h6>Input</h6>
+      <p>This helper allows to spy the communication emitted by the top bar to other widgets</p>
       <form onSubmit={formSubmit}>
         <Input name="text" placeholder="Text to search" crossOrigin={undefined} />
         <Button variant="primary">Search</Button>
@@ -79,13 +55,6 @@ export const Panel: FC = (): React.JSX.Element => {
       <Button variant="discreet" onClick={abortEvent}>
         Abort
       </Button>
-      <div>
-        <h6>Output</h6>
-        <pre>{searched}</pre>
-        <p>
-          Last event: <strong>{lastEvent}</strong>
-        </p>
-      </div>
     </div>
   );
 };

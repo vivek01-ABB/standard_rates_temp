@@ -1,0 +1,13 @@
+{
+  "application": "client-navigator-app",
+  "version": "0.0.0",
+  "entry": "client-navigator-app.umd.cjs",
+  "widgets": [
+    "client-navigator",
+    "client-page-one",
+    "client-hierarchy-scope",
+    "hmi-demo-react-top-bar-filter",
+    "hmi-demo-react-top-bar-log",
+    "hmi-demo-vanilla-top-bar"
+  ]
+}

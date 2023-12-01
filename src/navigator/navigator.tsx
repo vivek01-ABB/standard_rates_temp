@@ -1,5 +1,5 @@
 import Widget from './Widget.js';
-import { createWidget, getAuth, getNavigator, getOverlay } from '@abb-hmi/widget-sdk-react';
+import { createWidget, getAuth, getNavigator } from '@abb-hmi/widget-sdk-react';
 
 createWidget('client-navigator', {
   Component: Widget,

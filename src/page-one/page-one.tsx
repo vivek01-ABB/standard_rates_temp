@@ -1,5 +1,12 @@
 import Widget from './Widget.js';
-import { createWidget, getAuth, getLogger, getWidget, getView } from '@abb-hmi/widget-sdk-react';
+import {
+  createWidget,
+  getAuth,
+  getLogger,
+  getWidget,
+  getView,
+  getNavigator,
+} from '@abb-hmi/widget-sdk-react';
 import WidgetVersion from './WidgetVersion.ts';
 
 createWidget('client-page-one', {
@@ -9,20 +16,14 @@ createWidget('client-page-one', {
     getView,
     getWidget,
     getAuth,
+    navigator: getNavigator,
   },
   configuration: {
-    // name: {
-    //   type: 'string',
-    //   description: 'name of the application',
-    //   optional: false,
-    //   default: 'demo-app',
-    // },
-    // version: {
-    //   type: 'string',
-    //   description: 'version of the application',
-    //   optional: false,
-    //   default: '0.0.1',
-    // },
+    name: {
+      type: 'string',
+      description: 'name of the application',
+      optional: true,
+    },
 
     selectedItem: {
       type: 'communication',
@@ -30,7 +31,7 @@ createWidget('client-page-one', {
       // objectType is optional, but very recommended
       objectType: {
         name: 'IItemSelector',
-        version: typeof WidgetVersion,
+        version: WidgetVersion,
       },
     },
   },

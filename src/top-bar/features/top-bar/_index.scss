@@ -1,0 +1,23 @@
+@import "@abb-hmi/apux/spacing";
+
+[widget-root] {
+  > .flex {
+    height: 100%;
+    background: var(--apux-background-default);
+    align-items: center;
+    padding: 0 $space-double;
+  }
+  .flex {
+    display: flex;
+    flex-direction: row;
+  }
+  .flex__form {
+    margin-bottom: 0;
+  }
+  .big {
+    flex: 1 1 auto;
+    apux-input {
+      width: 100%;
+    }
+  }
+}

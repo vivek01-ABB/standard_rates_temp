@@ -1,4 +1,2177 @@
-.app {
-  font-weight: bold;
-  color: red;
+/*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+*,::before,::after{
+  box-sizing:border-box
 }
+
+html{
+  tab-size:4;
+  line-height:1.15;
+  -webkit-text-size-adjust:100%
+}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"
+}
+
+hr{
+  height:0;
+  color:inherit
+}
+
+abbr[title]{
+  -webkit-text-decoration:underline dotted;
+          text-decoration:underline dotted
+}
+
+b,strong{
+  font-weight:bolder
+}
+
+code,kbd,samp,pre{
+  font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:1em
+}
+
+small{
+  font-size:80%
+}
+
+sub,sup{
+  font-size:75%;
+  line-height:0;
+  position:relative;
+  vertical-align:baseline
+}
+
+sub{
+  bottom:-0.25em
+}
+
+sup{
+  top:-0.5em
+}
+
+table{
+  text-indent:0;
+  border-color:inherit
+}
+
+button,input,optgroup,select,textarea{
+  font-family:inherit;
+  font-size:100%;
+  line-height:1.15;
+  margin:0
+}
+
+button,select{
+  text-transform:none
+}
+
+button,[type=button],[type=reset],[type=submit]{
+  -webkit-appearance:button
+}
+
+::-moz-focus-inner{
+  border-style:none;
+  padding:0
+}
+
+:-moz-focusring{
+  outline:1px dotted ButtonText
+}
+
+:-moz-ui-invalid{
+  box-shadow:none
+}
+
+legend{
+  padding:0
+}
+
+progress{
+  vertical-align:baseline
+}
+
+::-webkit-inner-spin-button,::-webkit-outer-spin-button{
+  height:auto
+}
+
+[type=search]{
+  -webkit-appearance:textfield;
+  outline-offset:-2px
+}
+
+::-webkit-search-decoration{
+  -webkit-appearance:none
+}
+
+::-webkit-file-upload-button{
+  -webkit-appearance:button;
+  font:inherit
+}
+
+summary{
+  display:list-item
+}
+
+@font-face{
+  font-family:"ABBvoice";
+
+  src:url("fonts/ABBvoice_W_Rg.woff2")
+}
+
+@font-face{
+  font-family:"ABBvoiceMedium";
+
+  src:url("fonts/ABBvoice_W_Md.woff2")
+}
+
+@font-face{
+  font-family:"ABBvoiceLight";
+
+  src:url("fonts/ABBvoice_W_Lt.woff2")
+}
+
+@font-face{
+  font-family:"ABBvoiceBold";
+
+  src:url("fonts/ABBvoice_W_Bd.woff2")
+}
+
+body{
+  font-size:.875rem;
+  line-height:1.25;
+  color:var(--apux-foreground-primary)
+}
+
+h1{
+  font-family:"ABBvoiceBold",sans-serif;
+  font-size:3rem;
+  line-height:1.25;
+  margin:1rem 0;
+  font-weight:bold
+}
+
+h2{
+  font-family:"ABBvoiceLight",sans-serif;
+  font-size:2.25rem;
+  line-height:1.25;
+  margin:1rem 0;
+  font-weight:lighter
+}
+
+h3{
+  font-family:"ABBvoiceMedium",sans-serif;
+  font-size:1.75rem;
+  line-height:1.25;
+  margin:.5rem 0;
+  font-weight:normal
+}
+
+h4{
+  font-family:"ABBvoiceMedium",sans-serif;
+  font-size:1.25rem;
+  line-height:1.25;
+  margin:.5rem 0;
+  font-weight:normal
+}
+
+b,strong,dl dt{
+  font-family:"ABBvoiceBold",sans-serif;
+  font-weight:bold
+}
+
+a{
+  color:var(--apux-select);
+  text-decoration:none
+}
+
+a:hover{
+  text-decoration:underline
+}
+
+pre{
+  background-color:var(--apux-fill-primary-active);
+  display:block;
+  overflow:auto;
+  font-size:.875rem;
+  color:var(--apux-foreground-inverted);
+  padding:1rem
+}
+
+abbr{
+  -webkit-text-decoration:underline dotted;
+          text-decoration:underline dotted
+}
+
+apux-tree-view-item:not(:has(apux-tree-view-item))::part(expander){
+  display:none
+}
+
+apux-field:not([label=""]):not([required=no]):has(>[required])::part(label
+  )::before{
+  content:"*";
+  color:var(--required-color);
+  padding-right:.5rem
+}
+
+apux-field:not([disabled=no]):has(>[disabled]){
+  --description-color: var(--disabled-description-color);
+  --label-color: var(--disabled-label-color)
+}
+
+apux-field:has(>[succeeded]){
+  --description-color: var(--success-description-color)
+}
+
+apux-field:has(>[succeeded])[description]::part(error-icon),apux-field:has(>[succeeded]):has(>[slot=description])::part(error-icon){
+  display:inline-block !important
+}
+
+apux-field:has(>:is(:invalid,[invalid])){
+  --description-color: var(--error-description-color)
+}
+
+apux-field:has(>:is(:invalid,[invalid]))[description]::part(error-icon),apux-field:has(>:is(:invalid,[invalid])):has(>[slot=description])::part(error-icon){
+  display:inline-block !important
+}
+
+apux-menu-item:has(>apux-menu)::part(submenu-icon){
+  display:inline-block
+}
+
+:root{
+  --apux-background-default: #f5f5f5;
+  --apux-background-alternative: white;
+  --apux-border-default: #dbdbdb;
+  --apux-border-default-disabled: #dbdbdb;
+  --apux-border-default-hover: #bababa;
+  --apux-border-default-active: #9e9e9e;
+  --apux-outline-color: var(--apux-select);
+  --apux-scrollbar-thumb-color: var(--apux-fill-secondary-active);
+  --apux-fill-primary: #1f1f1f;
+  --apux-fill-primary-disabled: #bababa;
+  --apux-fill-primary-hover: #525252;
+  --apux-fill-primary-active: #333333;
+  --apux-fill-secondary: rgba(0, 0, 0, 0.08);
+  --apux-fill-secondary-disabled: rgba(0, 0, 0, 0.08);
+  --apux-fill-secondary-hover: rgba(0, 0, 0, 0.12);
+  --apux-fill-secondary-active: rgba(0, 0, 0, 0.24);
+  --apux-fill-tertiary: rgba(0, 0, 0, 0.04);
+  --apux-fill-tertiary-disabled: rgba(0, 0, 0, 0.04);
+  --apux-fill-tertiary-hover: rgba(0, 0, 0, 0.08);
+  --apux-fill-tertiary-active: rgba(0, 0, 0, 0.16);
+  --apux-fill-base: white;
+  --apux-accent: #ff0011;
+  --apux-accent-disabled: #ff99a0;
+  --apux-accent-hover: #ff4754;
+  --apux-accent-active: #ce0916;
+  --apux-accent-secondary: #fad1d4;
+  --apux-accent-secondary-disabled: #fad1d4;
+  --apux-accent-secondary-hover: #fad1d4;
+  --apux-accent-secondary-active: #fad1d4;
+  --apux-select: #3366ff;
+  --apux-select-disabled: #9cbdf7;
+  --apux-select-hover: #4d85ff;
+  --apux-select-active: #2934ff;
+  --apux-select-secondary: #e0f0ff;
+  --apux-select-secondary-disabled: #e0f0ff;
+  --apux-select-secondary-hover: #e0f0ff;
+  --apux-select-secondary-active: #e0f0ff;
+  --apux-foreground-primary: #1f1f1f;
+  --apux-foreground-primary-disabled: rgba(31, 31, 31, 0.3);
+  --apux-foreground-primary-hover: #696969;
+  --apux-foreground-secondary: #696969;
+  --apux-foreground-secondary-disabled: #696969;
+  --apux-foreground-secondary-hover: #696969;
+  --apux-foreground-inverted: white;
+  --apux-foreground-inverted-disabled: white;
+  --apux-foreground-inverted-hover: white;
+  --apux-state-error: #ef3934;
+  --apux-state-error-secondary: #fbefef;
+  --apux-state-success: #21a67a;
+  --apux-state-success-secondary: #edf8f4;
+  --apux-state-warning: #ffa200;
+  --apux-state-warning-secondary: #fefaf1;
+  --apux-state-info: #0052ff;
+  --apux-state-info-secondary: #d6e3ff;
+  --apux-popper-shadow: rgba(0, 0, 0, 0.35)
+}
+
+.apux-darkness{
+  --apux-background-default: #333333;
+  --apux-background-alternative: #1f1f1f;
+  --apux-border-default: #525252;
+  --apux-border-default-disabled: #525252;
+  --apux-border-default-hover: #525252;
+  --apux-border-default-active: #525252;
+  --apux-fill-primary: #696969;
+  --apux-fill-primary-disabled: #696969;
+  --apux-fill-primary-hover: #696969;
+  --apux-fill-primary-active: #696969;
+  --apux-fill-secondary: rgba(255, 255, 255, 8%);
+  --apux-fill-secondary-disabled: rgba(255, 255, 255, 8%);
+  --apux-fill-secondary-hover: rgba(255, 255, 255, 8%);
+  --apux-fill-secondary-active: rgba(255, 255, 255, 8%);
+  --apux-fill-tertiary: rgba(255, 255, 255, 4%);
+  --apux-fill-tertiary-disabled: rgba(255, 255, 255, 4%);
+  --apux-fill-tertiary-hover: rgba(255, 255, 255, 4%);
+  --apux-fill-tertiary-active: rgba(255, 255, 255, 4%);
+  --apux-foreground-primary: #dbdbdb;
+  --apux-foreground-primary-disabled: #dbdbdb;
+  --apux-foreground-primary-hover: #dbdbdb;
+  --apux-foreground-secondary: #bababa;
+  --apux-foreground-secondary-disabled: #bababa;
+  --apux-foreground-secondary-hover: #bababa;
+  --apux-foreground-inverted: white;
+  --apux-foreground-inverted-disabled: white;
+  --apux-foreground-inverted-hover: white
+}
+
+apux-toggle-button{
+  --background-color: var(--apux-fill-tertiary);
+  --text-color: var(--apux-foreground-primary);
+  --icon-color: var(--apux-foreground-primary);
+  --disabled-background-color: var(--background-color);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-icon-color: var(--apux-foreground-primary-disabled);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --hover-text-color: var(--apux-foreground-primary-hover);
+  --hover-icon-color: var(--apux-foreground-primary-hover);
+  --active-background-color: var(--apux-fill-tertiary-active);
+  --active-text-color: var(--checked-text-color);
+  --active-icon-color: var(--checked-text-color);
+  --checked-background-color: var(--apux-select-secondary);
+  --checked-text-color: var(--text-color);
+  --checked-icon-color: var(--apux-select);
+  --checked-disabled-background-color: var(--apux-select-secondary-disabled);
+  --checked-disabled-text-color: var(--disabled-text-color);
+  --checked-disabled-icon-color: var(--apux-select-disabled);
+  --checked-hover-background-color: var(--apux-select-secondary-hover);
+  --checked-hover-text-color: var(--apux-foreground-secondary-hover);
+  --checked-hover-icon-color: var(--apux-select-hover);
+  --checked-active-background-color: var(--apux-select-secondary-active);
+  --checked-active-text-color: var(--text-color);
+  --checked-active-icon-color: var(--apux-select-active)
+}
+
+apux-toggle-button[sub-variant=alternative],apux-toggle-button[sub-variant=discreet]{
+  --background-color: transparent
+}
+
+apux-toggle-button[variant=alternative]{
+  --checked-background-color: var(--apux-fill-secondary);
+  --checked-icon-color: var(--icon-color);
+  --checked-disabled-background-color: var(--apux-fill-secondary-disabled);
+  --checked-disabled-icon-color: var(--disabled-icon-color);
+  --checked-hover-background-color: var(--apux-fill-secondary-hover);
+  --checked-hover-icon-color: var(--hover-icon-color);
+  --checked-active-background-color: var(--apux-fill-secondary-active);
+  --checked-active-icon-color: var(--active-icon-color)
+}
+
+apux-toggle-button[variant=accent]{
+  --checked-background-color: var(--apux-accent-secondary);
+  --checked-icon-color: var(--apux-accent);
+  --checked-disabled-background-color: var(--apux-accent-secondary-disabled);
+  --checked-disabled-icon-color: var(--apux-accent-disabled);
+  --checked-hover-background-color: var(--apux-accent-secondary-hover);
+  --checked-hover-icon-color: var(--apux-accent-hover);
+  --checked-active-background-color: var(--apux-accent-secondary-active);
+  --checked-active-icon-color: var(--apux-accent-active)
+}
+
+apux-button{
+  --background-color: var(--apux-fill-secondary);
+  --border-color: none;
+  --text-color: var(--apux-foreground-primary);
+  --disabled-background-color: var(--apux-fill-secondary-disabled);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --hover-background-color: var(--apux-fill-secondary-hover);
+  --hover-text-color: var(--text-color);
+  --active-background-color: var(--apux-fill-secondary-active);
+  --active-text-color: var(--text-color)
+}
+
+apux-button[variant=primary]{
+  --background-color: var(--apux-fill-primary);
+  --text-color: var(--apux-foreground-inverted);
+  --disabled-background-color: var(--apux-fill-primary-disabled);
+  --disabled-text-color: var(--text-color);
+  --hover-background-color: var(--apux-fill-primary-hover);
+  --active-background-color: var(--apux-fill-primary-active)
+}
+
+apux-button[variant=accent]{
+  --background-color: var(--apux-accent);
+  --text-color: var(--apux-foreground-inverted);
+  --disabled-background-color: var(--apux-accent-disabled);
+  --disabled-text-color: var(--text-color);
+  --hover-background-color: var(--apux-accent-hover);
+  --active-background-color: var(--apux-accent-active)
+}
+
+apux-button[variant=ghost],apux-button[variant=discreet]{
+  --background-color: transparent;
+  --disabled-background-color: var(--apux-fill-tertiary-disabled);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --active-background-color: var(--apux-fill-tertiary-active)
+}
+
+apux-button[variant=ghost]{
+  --border-color: var(--apux-border-default);
+  --disabled-border-color: var(--apux-border-default-disabled);
+  --hover-border-color: var(--apux-border-default-hover);
+  --active-border-color: var(--apux-border-default-active)
+}
+
+apux-checkbox,apux-radio{
+  --tick-color: var(--apux-foreground-inverted);
+  --box-color: var(--apux-foreground-inverted);
+  --border-color: var(--apux-border-default);
+  --text-color: var(--apux-foreground-primary);
+  --hover-box-color: var(--apux-fill-tertiary-hover);
+  --hover-border-color: var(--apux-border-default-hover);
+  --disabled-box-color: var(--apux-fill-tertiary-disabled);
+  --disabled-border-color: var(--apux-border-default-disabled);
+  --checked-box-color: var(--apux-select);
+  --checked-hover-box-color: var(--apux-select-hover);
+  --checked-disabled-box-color: var(--apux-select-disabled);
+  --disabled-text-color: var(--apux-foreground-primary-disabled)
+}
+
+apux-switch{
+  --background-color: var(--apux-fill-secondary);
+  --border-color: var(--apux-border-default);
+  --text-color: var(--apux-foreground-primary);
+  --hover-background-color: var(--apux-fill-secondary-hover);
+  --hover-border-color: var(--apux-border-default-hover);
+  --disabled-background-color: var(--apux-fill-secondary-disabled);
+  --disabled-border-color: var(--apux-border-default-disabled);
+  --checked-background-color: var(--apux-select);
+  --checked-hover-background-color: var(--apux-select-hover);
+  --checked-disabled-background-color: var(--apux-select-disabled);
+  --disabled-text-color: var(--apux-foreground-primary-disabled)
+}
+
+apux-switch[variant=alternative]{
+  --checked-background-color: var(--apux-fill-primary);
+  --checked-hover-background-color: var(--apux-fill-primary-hover);
+  --checked-disabled-background-color: var(--apux-fill-primary-disabled)
+}
+
+apux-switch[variant=accent]{
+  --checked-background-color: var(--apux-accent);
+  --checked-hover-background-color: var(--apux-accent-hover);
+  --checked-disabled-background-color: var(--apux-accent-disabled)
+}
+
+apux-checkbox[variant=alternative],apux-radio[variant=alternative]{
+  --checked-box-color: var(--apux-fill-primary);
+  --checked-hover-box-color: var(--apux-fill-primary-hover);
+  --checked-disabled-box-color: var(--apux-fill-primary-disabled)
+}
+
+apux-checkbox[variant=accent],apux-radio[variant=accent]{
+  --checked-box-color: var(--apux-accent);
+  --checked-hover-box-color: var(--apux-accent-hover);
+  --checked-disabled-box-color: var(--apux-accent-disabled)
+}
+
+apux-icon{
+  --color: var(--apux-fill-primary)
+}
+
+apux-card,apux-dialog,apux-menu{
+  --background-color: var(--apux-background-alternative);
+  --shadow-color: var(--apux-border-default)
+}
+
+apux-card{
+  --selected-background-color: var(--apux-select)
+}
+
+apux-tooltip{
+  --background-color: var(--apux-fill-primary);
+  --text-color: var(--apux-foreground-inverted)
+}
+
+apux-input{
+  --background-color: var(--apux-fill-base);
+  --text-color: var(--apux-foreground-primary);
+  --placeholder-color: var(--apux-foreground-secondary);
+  --border-color: var(--apux-border-default);
+  --icon-color: var(--apux-fill-primary-disabled);
+  --required-color: var(--apux-state-error);
+  --label-color: var(--text-color);
+  --description-color: var(--apux-foreground-secondary);
+  --hover-background-color: var(--background-color);
+  --hover-text-color: var(--text-color);
+  --hover-border-color: var(--apux-border-default-hover);
+  --hover-label-color: var(--label-color);
+  --hover-description-color: var(--description-color);
+  --active-background-color: var(--background-color);
+  --active-text-color: var(--text-color);
+  --active-border-color: var(--apux-select-active);
+  --active-label-color: var(--label-color);
+  --active-description-color: var(--description-color);
+  --error-background-color: var(--apux-state-error-secondary);
+  --error-text-color: var(--text-color);
+  --error-placeholder-color: var(--placeholder-color);
+  --error-border-color: var(--apux-state-error);
+  --error-label-color: var(--label-color);
+  --error-description-color: var(--apux-state-error);
+  --disabled-background-color: var(--background-color);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-placeholder-color: var(--disabled-text-color);
+  --disabled-border-color: var(--apux-border-default-disabled);
+  --disabled-label-color: var(--label-color);
+  --disabled-description-color: var(--description-color)
+}
+
+apux-breadcrumb{
+  --text-color: var(--apux-foreground-primary);
+  --icon-color: var(--apux-fill-primary);
+  --last-item-color: var(--apux-foreground-secondary);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --hover-text-color: var(--text-color);
+  --active-background-color: var(--apux-fill-tertiary-active);
+  --active-text-color: var(--text-color)
+}
+
+apux-select{
+  --background-color: var(--apux-fill-base);
+  --text-color: var(--apux-foreground-primary);
+  --placeholder-color: var(--apux-foreground-secondary);
+  --border-color: var(--apux-border-default);
+  --icon-color: var(--apux-fill-primary);
+  --required-color: var(--apux-state-error);
+  --label-color: var(--text-color);
+  --description-color: var(--apux-foreground-secondary);
+  --shadow-color: var(--apux-border-default);
+  --active-border-color: var(--apux-select-active);
+  --scrollbar-color: var(--apux-fill-secondary);
+  --hover-background-color: var(--background-color);
+  --hover-text-color: var(--text-color);
+  --hover-border-color: var(--apux-border-default-hover);
+  --hover-label-color: var(--label-color);
+  --hover-description-color: var(--description-color);
+  --disabled-background-color: var(--background-color);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-placeholder-color: var(--disabled-text-color);
+  --disabled-border-color: var(--apux-border-default-disabled);
+  --disabled-icon-color: var(--apux-fill-primary-disabled);
+  --disabled-label-color: var(--label-color);
+  --disabled-description-color: var(--description-color)
+}
+
+apux-option{
+  --background-color: var(--background-color);
+  --text-color: var(--apux-foreground-primary);
+  --hover-background-color: var(--apux-select-secondary-hover);
+  --selected-background-color: var(--apux-select-active);
+  --selected-text-color: var(--apux-foreground-inverted);
+  --disabled-background-color: var(--background-color);
+  --disabled-text-color: var(--apux-foreground-primary-disabled)
+}
+
+apux-textarea{
+  --background-color: var(--apux-fill-base);
+  --text-color: var(--apux-foreground-primary);
+  --placeholder-color: var(--apux-foreground-secondary);
+  --border-color: var(--apux-border-default);
+  --required-color: var(--apux-state-error);
+  --label-color: var(--text-color);
+  --description-color: var(--apux-foreground-secondary);
+  --hover-background-color: var(--background-color);
+  --hover-text-color: var(--text-color);
+  --hover-border-color: var(--apux-border-default-hover);
+  --hover-label-color: var(--label-color);
+  --hover-description-color: var(--description-color);
+  --active-background-color: var(--background-color);
+  --active-text-color: var(--text-color);
+  --active-border-color: var(--apux-select-active);
+  --active-label-color: var(--label-color);
+  --active-description-color: var(--description-color);
+  --disabled-background-color: var(--background-color);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-placeholder-color: var(--disabled-text-color);
+  --disabled-border-color: var(--apux-border-default-disabled);
+  --disabled-label-color: var(--label-color);
+  --disabled-description-color: var(--description-color)
+}
+
+apux-tree-view-item{
+  --background-color: transparent;
+  --text-color: var(--apux-foreground-primary);
+  --selected-background-color: var(--apux-select-secondary);
+  --selected-text-color: var(--text-color);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --hover-text-color: var(--text-color)
+}
+
+apux-dialog{
+  --overlay-color: var(--apux-fill-secondary);
+  --background-color: var(--apux-background-alternative)
+}
+
+apux-status{
+  --state-color: var(--apux-state-success);
+  --text-color: var(--apux-foreground-inverted);
+  --icon-color: var(--apux-foreground-inverted)
+}
+
+apux-status[state=info]{
+  --state-color: var(--apux-state-info)
+}
+
+apux-status[state=warning]{
+  --state-color: var(--apux-state-warning)
+}
+
+apux-dialog[state=error],apux-status[state=error]{
+  --state-color: var(--apux-state-error)
+}
+
+apux-tag{
+  --background-color: var(--apux-fill-secondary);
+  --text-color: var(--apux-foreground-primary);
+  --icon-color: var(--apux-foreground-primary);
+  --hover-background-color: var(--apux-fill-secondary-hover);
+  --hover-text-color: var(--apux-foreground-primary-hover);
+  --hover-icon-color: var(--apux-foreground-primary-hover);
+  --disabled-background-color: var(--apux-fill-secondary-disabled);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-icon-color: var(--apux-foreground-primary-disabled)
+}
+
+apux-menu-item{
+  --text-color: var(--apux-foreground-primary);
+  --background-color: var(--apux-background-alternative);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --selected-background-color: var(--apux-select-secondary);
+  --disabled-background-color: transparent;
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-icon-color: var(--apux-foreground-primary-disabled)
+}
+
+apux-divider{
+  --border-color: var(--apux-border-default)
+}
+
+apux-menu-header{
+  --text-color: var(--apux-foreground-primary);
+  --background-color: var(--apux-background-alternative)
+}
+
+apux-field{
+  --label-color: var(--text-color);
+  --description-color: var(--apux-foreground-secondary);
+  --required-color: var(--apux-state-error);
+  --disabled-label-color: var(--apux-foreground-primary-disabled);
+  --disabled-description-color: var(--apux-foreground-primary-disabled);
+  --error-label-color: var(--label-color);
+  --error-description-color: var(--apux-state-error);
+  --success-label-color: var(--label-color);
+  --success-description-color: var(--apux-state-success)
+}
+
+apux-tab{
+  --background-color: transparent;
+  --text-color: var(--apux-foreground-primary);
+  --icon-color: var(--apux-foreground-primary);
+  --underline-color: var(--apux-foreground-primary);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --disabled-icon-color: var(--apux-foreground-primary-disabled)
+}
+
+apux-tab-panes{
+  --background-color: var(--apux-background-default)
+}
+
+apux-tab-panes>apux-tab-pane{
+  --background-color: var(--apux-fill-base)
+}
+
+apux-tab-panes[variant=primary],apux-tab-panes[variant=accent]{
+  --background-color: transparent
+}
+
+apux-tab-panes[variant=primary]>apux-tab-pane,apux-tab-panes[variant=accent]>apux-tab-pane{
+  --background-color: transparent
+}
+
+apux-tab-panes[variant=secondary-inverted]{
+  --background-color: var(--apux-fill-base)
+}
+
+apux-tab-panes[variant=secondary-inverted]>apux-tab-pane{
+  --background-color: var(--apux-background-default)
+}
+
+apux-tab-list[variant=accent]>apux-tab{
+  --underline-color: var(--apux-accent)
+}
+
+apux-tab-list[variant=secondary]>apux-tab,apux-tab-list[variant=secondary-inverted]>apux-tab{
+  --underline-color: transparent
+}
+
+apux-tab-list[variant=secondary]>apux-tab[selected]{
+  --background-color: var(--apux-fill-base)
+}
+
+apux-tab-list[variant=secondary-inverted]>apux-tab[selected]{
+  --background-color: var(--apux-background-default)
+}
+
+apux-tab[variant=accent]{
+  --underline-color: var(--apux-accent)
+}
+
+apux-spinner-loader{
+  --loading-color: var(--apux-fill-secondary);
+  --loaded-color: var(--apux-fill-primary)
+}
+
+apux-spinner-loader[variant=discreet]{
+  --loaded-color: var(--apux-fill-secondary)
+}
+
+apux-spinner-loader[variant=accent]{
+  --loaded-color: var(--apux-accent)
+}
+
+apux-spinner-loader[state=success]{
+  --loaded-color: var(--apux-state-success)
+}
+
+apux-spinner-loader[state=error]{
+  --loaded-color: var(--apux-state-error)
+}
+
+apux-progress{
+  --progress-bar-color: var(--apux-fill-secondary);
+  --progress-value-color: var(--apux-fill-primary)
+}
+
+apux-progress[variant=accent]{
+  --progress-bar-color: var(--apux-accent-secondary);
+  --progress-value-color: var(--apux-accent)
+}
+
+apux-progress[variant=discreet]{
+  --progress-bar-color: var(--apux-fill-tertiary);
+  --progress-value-color: var(--apux-fill-secondary)
+}
+
+apux-progress[succeeded]{
+  --progress-value-color: var(--apux-state-success)
+}
+
+apux-progress[invalid]{
+  --progress-bar-color: var(--apux-fill-tertiary);
+  --progress-value-color: var(--apux-state-error)
+}
+
+apux-date-picker{
+  --background-color: var(--apux-fill-base);
+  --shadow-color: var(--apux-border-default);
+  --day-text-color: var(--apux-foreground-secondary);
+  --scrollbar-color: var(--apux-fill-secondary)
+}
+
+apux-date-tile{
+  --text-color: var(--apux-foreground-primary);
+  --disabled-text-color: var(--apux-foreground-primary-disabled);
+  --active-background-color: var(--apux-fill-tertiary-active);
+  --current-border-color: var(--apux-border-default);
+  --outbound-text-color: var(--apux-foreground-secondary);
+  --hover-background-color: var(--apux-fill-tertiary-hover);
+  --hover-text-color: var(--apux-foreground-primary-hover);
+  --selected-background-color: var(--apux-select);
+  --selected-text-color: var(--apux-foreground-inverted);
+  --range-background-color: var(--apux-fill-secondary)
+}
+
+/*! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com */
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
+*/
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  /* 1 */
+  border-width: 0;
+  /* 2 */
+  border-style: solid;
+  /* 2 */
+  border-color: #e5e7eb;
+  /* 2 */
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use a more readable tab size.
+4. Use the user's configured `sans` font-family by default.
+5. Use the user's configured `sans` font-feature-settings by default.
+6. Use the user's configured `sans` font-variation-settings by default.
+*/
+
+html {
+  line-height: 1.5;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+  /* 3 */
+  tab-size: 4;
+  /* 3 */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  /* 4 */
+  -webkit-font-feature-settings: normal;
+          font-feature-settings: normal;
+  /* 5 */
+  font-variation-settings: normal;
+  /* 6 */
+}
+
+/*
+1. Remove the margin in all browsers.
+2. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+
+body {
+  margin: 0;
+  /* 1 */
+  line-height: inherit;
+  /* 2 */
+}
+
+/*
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+3. Ensure horizontal rules are visible by default.
+*/
+
+hr {
+  height: 0;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  border-top-width: 1px;
+  /* 3 */
+}
+
+/*
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr:where([title]) {
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Reset links to optimize for opt-in styling instead of opt-out.
+*/
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+1. Use the user's configured `mono` font family by default.
+2. Correct the odd `em` font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+
+small {
+  font-size: 80%;
+}
+
+/*
+Prevent `sub` and `sup` elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/*
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+3. Remove gaps between table borders by default.
+*/
+
+table {
+  text-indent: 0;
+  /* 1 */
+  border-color: inherit;
+  /* 2 */
+  border-collapse: collapse;
+  /* 3 */
+}
+
+/*
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+3. Remove default padding in all browsers.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  -webkit-font-feature-settings: inherit;
+          font-feature-settings: inherit;
+  /* 1 */
+  font-variation-settings: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  font-weight: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  color: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+  padding: 0;
+  /* 3 */
+}
+
+/*
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+  text-transform: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Remove default button styles.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  /* 1 */
+  background-color: transparent;
+  /* 2 */
+  background-image: none;
+  /* 2 */
+}
+
+/*
+Use the modern Firefox focus style for all focusable elements.
+*/
+
+:-moz-focusring {
+  outline: auto;
+}
+
+/*
+Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
+*/
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+/*
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+  vertical-align: baseline;
+}
+
+/*
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/*
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to `inherit` in Safari.
+*/
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+  display: list-item;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+Reset default styling for dialogs.
+*/
+
+dialog {
+  padding: 0;
+}
+
+/*
+Prevent resizing textareas horizontally by default.
+*/
+
+textarea {
+  resize: vertical;
+}
+
+/*
+1. Reset the default placeholder opacity in Firefox. (https://github.com/tailwindlabs/tailwindcss/issues/3300)
+2. Set the default placeholder color to the user's configured gray 400 color.
+*/
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+/*
+Set the default cursor for buttons.
+*/
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+
+:disabled {
+  cursor: default;
+}
+
+/*
+1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
+2. Add `vertical-align: middle` to align replaced elements more sensibly by default. (https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210)
+   This can trigger a poorly considered lint error in some tools but is included by design.
+*/
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  /* 1 */
+  vertical-align: middle;
+  /* 2 */
+}
+
+/*
+Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
+*/
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden] {
+  display: none;
+}
+
+*, ::before, ::after{
+  --tw-border-spacing-x:0;
+  --tw-border-spacing-y:0;
+  --tw-translate-x:0;
+  --tw-translate-y:0;
+  --tw-rotate:0;
+  --tw-skew-x:0;
+  --tw-skew-y:0;
+  --tw-scale-x:1;
+  --tw-scale-y:1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness:proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width:0px;
+  --tw-ring-offset-color:#fff;
+  --tw-ring-color:rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow:0 0 #0000;
+  --tw-ring-shadow:0 0 #0000;
+  --tw-shadow:0 0 #0000;
+  --tw-shadow-colored:0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: 
+}
+
+::-webkit-backdrop{
+  --tw-border-spacing-x:0;
+  --tw-border-spacing-y:0;
+  --tw-translate-x:0;
+  --tw-translate-y:0;
+  --tw-rotate:0;
+  --tw-skew-x:0;
+  --tw-skew-y:0;
+  --tw-scale-x:1;
+  --tw-scale-y:1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness:proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width:0px;
+  --tw-ring-offset-color:#fff;
+  --tw-ring-color:rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow:0 0 #0000;
+  --tw-ring-shadow:0 0 #0000;
+  --tw-shadow:0 0 #0000;
+  --tw-shadow-colored:0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: 
+}
+
+::backdrop{
+  --tw-border-spacing-x:0;
+  --tw-border-spacing-y:0;
+  --tw-translate-x:0;
+  --tw-translate-y:0;
+  --tw-rotate:0;
+  --tw-skew-x:0;
+  --tw-skew-y:0;
+  --tw-scale-x:1;
+  --tw-scale-y:1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness:proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width:0px;
+  --tw-ring-offset-color:#fff;
+  --tw-ring-color:rgb(59 130 246 / 0.5);
+  --tw-ring-offset-shadow:0 0 #0000;
+  --tw-ring-shadow:0 0 #0000;
+  --tw-shadow:0 0 #0000;
+  --tw-shadow-colored:0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: 
+}
+
+.float-right{
+  float:right
+}
+
+.inline{
+  display:inline
+}
+
+.flex{
+  display:flex
+}
+
+.hidden{
+  display:none
+}
+
+.h-10{
+  height:2.5rem
+}
+
+.h-full{
+  height:100%
+}
+
+.w-fit{
+  width:-webkit-fit-content;
+  width:-moz-fit-content;
+  width:fit-content
+}
+
+.w-full{
+  width:100%
+}
+
+.transform{
+  -webkit-transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+          transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
+}
+
+.items-center{
+  align-items:center
+}
+
+.justify-center{
+  justify-content:center
+}
+
+.overflow-auto{
+  overflow:auto
+}
+
+.overflow-y-auto{
+  overflow-y:auto
+}
+
+.overflow-x-hidden{
+  overflow-x:hidden
+}
+
+.bg-black{
+  --tw-bg-opacity:1;
+  background-color:rgb(0 0 0 / var(--tw-bg-opacity))
+}
+
+.bg-grey-100{
+  --tw-bg-opacity:1;
+  background-color:rgb(245 245 245 / var(--tw-bg-opacity))
+}
+
+.p-3{
+  padding:0.75rem
+}
+
+.p-4{
+  padding:1rem
+}
+
+.text-white{
+  --tw-text-opacity:1;
+  color:rgb(255 255 255 / var(--tw-text-opacity))
+}
+
+.filter{
+  -webkit-filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+          filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
+}
+
+body {
+  font-family: 'ABBvoice' !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 8px;
+  border: 6px solid #ffffff00;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+  /* height: 315px; */
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 8px;
+}
+
+.custom-checkbox input {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  -o-appearance: none;
+  display: inline-block;
+  outline: 2px solid #ebebeb;
+  border-radius: 1px;
+  height: 21px;
+  width: 21px;
+  padding-left: 2px;
+  padding-top: 2px;
+  box-sizing: border-box;
+  margin: 0 10px 0 0;
+  font: inherit;
+  color: black;
+  -webkit-transform: translateY(-0.075em);
+          transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+  background-color: white;
+}
+
+.custom-checkbox input[type='checkbox']::before {
+  content: '';
+  width: 0.75em;
+  height: 0.75em;
+  -webkit-clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+          clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  box-shadow: inset 1em 1em white;
+  background-color: rgb(0, 0, 0);
+}
+
+.custom-checkbox input[type='checkbox']:checked::before {
+  -webkit-transform: scale(1) translate(-1px, 0px) rotate(14deg);
+          transform: scale(1) translate(-1px, 0px) rotate(14deg);
+}
+
+.custom-checkbox input[type='checkbox']:checked {
+  background-color: black;
+}
+
+input:hover {
+  border-color: var(--apux-input-border-hover-color, #dbdbdb);
+  box-shadow: none;
+}
+
+label.required:before {
+  content: '*';
+  color: var(--apux-input-error-border-color, #ef3934);
+  margin-right: 0.5em;
+}
+
+.templatehome {
+  background-color: #f5f5f5;
+}
+
+.templatefilter {
+  background-color: #fff !important;
+}
+
+.text {
+  font-family: 'ABBvoice';
+  font-style: normal;
+}
+
+.groupbytext {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.checkboxtext {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #1f1f1f;
+}
+
+.filtertextcolor {
+  color: #686868;
+}
+
+.templateHeading {
+  font-weight: 300;
+  font-size: 38px;
+  letter-spacing: -0.7px;
+  color: #1f1f1f;
+}
+
+.templatetable {
+  padding: 26px 16px;
+}
+
+.dialogTitlePosition {
+  position: absolute;
+  top: 25px;
+}
+
+.createTemplate {
+  font-size: 24px;
+  line-height: 32px;
+  color: #1f1f1f;
+}
+
+.modalblur {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.loader-blur {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal {
+  box-shadow:
+    0px 0px 1px rgba(15, 15, 15, 0.08),
+    0px 0px 2px rgba(15, 15, 15, 0.04),
+    0px 4px 8px rgba(102, 102, 102, 0.16);
+  border-radius: 8px;
+}
+
+.dropdownText {
+  font-family: 'ABBvoice';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #1f1f1f;
+}
+
+.dropdownBox {
+  width: 192px;
+  height: 230px;
+  top: 36px;
+  background-color: #ffffff;
+  position: absolute;
+  right: -16px;
+  padding: 0.5rem;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.35);
+  overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.customize {
+  width: 100% !important;
+}
+
+.modaltextarea {
+  background: #f5f5f5;
+  box-shadow: 0px 1px 0px #dbdbdb;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+
+.deletetext {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  color: #1f1f1f;
+}
+
+.deleteIndicationline {
+  width: 100%;
+  height: 7px;
+  background: #ff000f;
+  border-radius: 8px 8px 0px 0px;
+}
+
+.fontsize14 {
+  font-size: 14px;
+}
+
+.lineheight28 {
+  line-height: 28px;
+}
+
+.colorgrey90 {
+  color: #1f1f1f;
+}
+
+.lineheight24 {
+  line-height: 24px;
+}
+
+.disabletext {
+  color: #bababa;
+}
+
+.notificationBar {
+  background-color: #ebebeb;
+}
+
+.abbMedium {
+  font-family: 'ABBvoiceMedium' !important;
+}
+
+.abbBold {
+  font-family: 'ABBvoiceBold' !important;
+}
+
+/* datepicker starts*/
+
+.datepicker input[type='date']::-webkit-inner-spin-button,
+.datepicker input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.datepicker input::-webkit-outer-spin-button,
+.datepicker input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+
+.datepicker input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.datepicker {
+  color: var(--apux-input-text-color, #1f1f1f);
+}
+
+.datepicker input:hover {
+  border-color: var(--apux-input-border-hover-color, #dbdbdb);
+  box-shadow: none;
+}
+
+.datepicker input {
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+.datepicker * {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Chrome/Safari/Opera */
+  /* Konqueror */
+  /* Firefox */
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently */
+}
+
+.datepicker-input {
+  box-shadow: 0 1px 0 var(--apux-input-box-shadow-color, #dbdbdb);
+  background-color: var(--apux-input-color, #f5f5f5);
+}
+
+.datepicker-input input:focus {
+  outline: none;
+}
+
+.datepicker-input:hover {
+  border-color: var(--apux-input-border-hover-color, #dbdbdb);
+  box-shadow: none;
+}
+
+.datepicker-icon {
+  line-height: initial;
+}
+
+.datepicker-input input {
+  padding: 0 16px;
+  box-sizing: inherit;
+  background-color: var(--apux-input-color, #f5f5f5);
+  box-shadow: 0 1px 0 var(--apux-input-box-shadow-color, #dbdbdb);
+  font-family: ABBvoice, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--apux-input-text-color, #1f1f1f);
+  border: 2px solid transparent;
+}
+
+.mdp-container {
+  left: 0;
+  bottom: 45px;
+  width: 585px;
+  min-height: 300px;
+  box-shadow: 10px 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 15px 16px;
+}
+
+.mdpch-button .mdpchb-inner {
+  cursor: pointer;
+}
+
+.mdpch-tabs div {
+  cursor: pointer;
+}
+
+.t-input-container {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.t-input-container input {
+  background-color: transparent;
+}
+
+.cc-month,
+.cc-head,
+.cch-name,
+.cc-body,
+.c-day-container,
+.c-container {
+  position: relative;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+}
+
+.c-container {
+  width: 100%;
+  height: 100%;
+}
+
+.cc-month {
+  height: 30px;
+  width: 100%;
+  font-family: Roboto;
+  font-size: 16px;
+  line-height: 30px;
+  color: #666;
+}
+
+.cc-head {
+  height: 30px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.cch-name {
+  width: 14%;
+  height: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  color: #666;
+  font-size: 9px;
+  text-align: center;
+}
+
+.cc-body {
+  height: 170px;
+  width: 100%;
+}
+
+.c-day-container {
+  width: 14%;
+  height: 35px;
+}
+
+.cdc-day {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  font-weight: 300;
+  color: #444;
+  text-align: center;
+}
+
+.cdc-day div {
+  font-size: 14px;
+  font-weight: 300;
+  color: #444;
+}
+
+.cdc-day div:hover {
+  cursor: pointer;
+  background: #f5f5f5;
+}
+
+.c-day-container.disabled {
+  pointer-events: none;
+}
+
+.c-day-container.disabled .cdc-day div {
+  color: #ddd;
+  background: #fff !important;
+}
+
+.c-day-container.highlight .cdc-day div {
+  border: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+.c-day-container.highlight-black .cdc-day div,
+.invert-color {
+  background-color: black;
+  color: white;
+}
+
+/* datepicker ends */
+
+.inputboxshadow {
+  box-shadow: 0 1px 0 #dbdbdb;
+}
+
+.custom-select-options {
+  box-shadow:
+    0px 6px 12px rgba(0, 0, 0, 0.25),
+    0px -6px 12px rgba(0, 0, 0, 0.25);
+}
+
+.custom-select.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@-webkit-keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.prevent-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.dot {
+  position: relative;
+  -webkit-animation: bounce 1s linear infinite;
+          animation: bounce 1s linear infinite;
+}
+
+.dot.dot-1 {
+  -webkit-animation-delay: 100ms;
+  animation-delay: 100ms;
+}
+
+.dot.dot-2 {
+  -webkit-animation-delay: 200ms;
+  animation-delay: 200ms;
+}
+
+.dot.dot-3 {
+  -webkit-animation-delay: 300ms;
+  animation-delay: 300ms;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    bottom: 0px;
+  }
+
+  20% {
+    bottom: 5px;
+  }
+
+  40% {
+    bottom: 0px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0px;
+  }
+
+  20% {
+    bottom: 5px;
+  }
+
+  40% {
+    bottom: 0px;
+  }
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.disabled-tab {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+input.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+apux-button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.interval-month .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.interval-month .dates button {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  background: transparent;
+  font-size: 16px;
+  justify-self: center;
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  margin: 1px;
+  transition-duration: 0.2s;
+}
+
+div.parameters-list div.parameter {
+  margin-top: 1rem;
+}
+
+.without_ampm::-webkit-datetime-edit-ampm-field {
+  display: none;
+}
+
+input[type='time']::-webkit-clear-button {
+  -webkit-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  margin: -10px;
+}
+
+input[type='time']::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.custom-select-option.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.text-truncated {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.error {
+  color: #ef5a54;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.item1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.item2 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.item3 {
+  grid-row-start: 1;
+  grid-row-end: 3;
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-column: span 2;
+}
+
+.item4 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.item5 {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.color69 {
+  color: #696969;
+}
+
+.color1f {
+  color: #1f1f1f;
+}
+
+.boldText {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.normalText {
+  font-family: 'ABBvoice';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #1f1f1f;
+}
+
+.lightText {
+  font-family: 'ABBvoice';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.active-background-color:hover {
+  background-color: #2934ff;
+  color: #fff;
+}
+
+.hierarchyDropdown {
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.35);
+  border-radius: '8px';
+  z-index: 999;
+  top: 50px;
+  left: 70px;
+  max-height: 600px;
+  padding: 8px;
+}
+
+/*# sourceMappingURL=Widget.css.map */

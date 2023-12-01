@@ -1,0 +1,17 @@
+{
+  "imports": {
+    "react": {
+      "path": "react/18.2.0/react.production.min.js",
+      "version": "18.2.0"
+    },
+    "react-dom": {
+      "path": "react-dom/18.2.0/react-dom.production.min.js",
+      "version": "18.2.0"
+    }
+  },
+  "scopes": {
+    "react-dom": [
+      "react"
+    ]
+  }
+}

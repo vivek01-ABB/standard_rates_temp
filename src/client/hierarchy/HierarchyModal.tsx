@@ -1,42 +1,26 @@
 import React, { SetStateAction } from 'react';
 import { TreeView, TreeViewItem } from '@abb-hmi/apux-react';
 import { icons } from '../constants/Home.ts';
-
-type HierarchyScopeModel = {
-  uId: string | null;
-  id: string;
-  name: string;
-  hierarchyLevel: string;
-  description: string;
-  parentUId: string;
-  rootNodesName?: string;
-};
+import WidgetVersion from '../WidgetVersion.ts';
+import { Trigger } from '@abb-hmi/widget-sdk-react';
+import { ListItem } from '../interfaces/index.ts';
 
 type HierarchyModalProps = {
   dataSource: any;
   setSelectedItem: React.Dispatch<SetStateAction<any>>;
-  selectedItem: HierarchyScopeModel;
+  selectedItem: { name: string; version: string };
+  onCheckbox: (e: React.ChangeEvent<any>) => void;
 };
 
 const HierarchyModalGlobal: React.FC<HierarchyModalProps> = ({
   dataSource = [],
   selectedItem,
-  setSelectedItem,
+  onCheckbox,
 }) => {
   const [dataList, setDataList] = React.useState<any>({});
   const [details, setDetails] = React.useState([]);
 
   const ds = React.useRef(dataSource);
-
-  const onCheckbox = (event: React.ChangeEvent<any>) => {
-    event.stopPropagation();
-
-    const data = JSON.parse(event.target.getAttribute('data-item'));
-
-    if (!event.target.selected) return;
-
-    setSelectedItem(event.target.selected ? data : {});
-  };
 
   const BuildMDMTree = (mdmTree: any) => {
     // const isHierarchyMapped = mappedHeirarchy?.includes(mdmTree.mdmTree.uId);
@@ -135,7 +119,7 @@ datalist={
                 search={true}
                 selection="row"
                 onClick={(e: any) => onCheckbox(e)}
-                // onChange={(e: any) => onCheckbox(e)}
+                onChange={(e: any) => onCheckbox(e)}
               >
                 {details}
               </TreeView>
@@ -145,10 +129,6 @@ datalist={
           <p className=" flex items-center justify-center ">No data</p>
         )}
       </div>
-
-      {/* <div>
-        <IconTextButton disabled={false} value="Close" handleClick={() => setIsOpen(false)} />
-      </div> */}
     </main>
   );
 };
